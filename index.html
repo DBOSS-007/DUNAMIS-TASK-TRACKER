@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <h1 class="ij">DUNAMIS TASK MANAGER</h1>
+    <div class="container">
+      <div id="login-view">
+        <h1>LOGIN</h1>
+        <input type="email" id="email" placeholder="Email" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+      </div>
+      <div>
+        <button class="bt">FORGOT PASSWORD</button>
+      </div>
+
+      <div id="dashboard-view" style="display: none;">
+        <h2 id="role-header"></h2>
+        <div id="task-list"></div>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+  <script>
+    // Get the current user's role from localStorage
+    const CurrentUserRole = localStorage.getItem('userRole') || 'employee';
+
+    // Get the required role for this page
+    const pageRole = document.body.getAttribute('data-role');
+
+    // Redirect if access is not allowed
+    if (
+      (pageRole === 'admin' && currentUserRole !== 'admin') ||
+      (pageRole === 'employee' && currentUserRole !== 'employee')
+    ) {
+      alert("Access Denied: Unauthorized role");
+      window.location.href = "login.html"; // Redirect to login or error page
+    }
+  </script>
+
+
+
+</body>
+
+</html>

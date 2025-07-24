@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work Cycle</title>
+  <link rel="stylesheet" href="cycle.css">
+</head>
+
+<body>
+
+
+
+
+  <div class="container">
+    <h2>Working Cycle</h2>
+
+    <!-- Add Cycle Form -->
+    <form id="cycle-form" onsubmit="addCycle(event)">
+      <input type="text" id="workerId" placeholder="Worker ID" required />
+      <input type="text" id="workerName" placeholder="Worker Name" required />
+      <input type="date" id="startDate" required />
+      <input type="date" id="endDate" required />
+      <select id="status" required>
+        <option value="">Select Status</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+      <button type="submit">Add Cycle</button>
+    </form>
+
+    <!-- Filter -->
+    <div style="margin-top: 20px;">
+      <label for="filterStatus">Filter by Status:</label>
+      <select id="filterStatus" onchange="filterCycles()">
+        <option value="All">All</option>
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+
+    <!-- Cycle Table -->
+    <table id="cycleTable">
+      <thead>
+        <tr>
+          <th>Worker ID</th>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cycleBody">
+        <!-- Entries will appear here -->
+      </tbody>
+    </table>
+  </div>
+
+
+
+
+  <script src="cycle.js"></script>
+
+</body>
+
+</html>
